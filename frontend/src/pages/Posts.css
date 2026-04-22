@@ -1,0 +1,253 @@
+/* ================= ROOT VARIABLES ================= */
+:root {
+  /* Fluid & Modern Palette */
+  --primary: #f43f5e;
+  --primary-glow: rgba(244, 63, 94, 0.15);
+  --accent: #9333ea;
+  --gradient-main: linear-gradient(135deg, #f87171 0%, #f43f5e 50%, #9333ea 100%);
+  
+  /* Adaptive Colors */
+  --bg-body: #f8fafc;
+  --card-bg: #ffffff;
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --border-color: rgba(0, 0, 0, 0.05);
+  
+  /* The "Fluent" Secret: Custom Easing */
+  --ease-fluid: cubic-bezier(0.3, 0, 0.2, 1);
+  --transition-smooth: all 0.4s var(--ease-fluid);
+  
+  /* Shadows & Radius */
+  --shadow-soft: 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-hover: 0 20px 40px rgba(15, 23, 42, 0.1);
+  --radius-xl: 24px;
+  --radius-md: 12px;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+  --bg-body: #020617;
+  --card-bg: #1e293b;
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ================= BASE RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-body);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+}
+
+/* ================= CONTAINER ================= */
+.posts-container {
+  display: grid;
+  /* CONSTRAINT: Exactly 2 columns maximum */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  padding: 4rem 2rem;
+  max-width: 1100px; /* Prevents cards from getting too wide/unreadable */
+  margin: 0 auto;
+}
+
+/* ================= POST CARD ================= */
+.post-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  /* Fix for Safari/Mobile "jitter" during animation */
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.post-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(244, 63, 94, 0.2);
+}
+
+/* Subtle background glow on hover */
+.post-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at top right, var(--primary-glow), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.post-card:hover::before {
+  opacity: 1;
+}
+
+/* ================= CONTENT STYLES ================= */
+.post-link {
+  text-decoration: none;
+  color: inherit;
+  z-index: 1;
+}
+
+.post-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text-main);
+  transition: var(--transition-smooth);
+}
+
+/* Animated title underline */
+.post-title::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 4px;
+  background: var(--gradient-main);
+  margin-top: 0.75rem;
+  border-radius: 2px;
+  transition: width 0.4s var(--ease-fluid);
+}
+
+.post-card:hover .post-title::after {
+  width: 100%;
+}
+
+.author {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.excerpt {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+  /* Keep cards aligned by limiting text lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ================= ACTIONS ================= */
+.post-actions {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition-smooth);
+}
+
+.likes:hover {
+  background: var(--primary-glow);
+  color: var(--primary);
+  transform: scale(1.05);
+}
+
+.read-more {
+  font-weight: 700;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+}
+
+.read-more:hover {
+  gap: 1rem; /* Fluent sliding effect */
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablet & Large Mobile (Switch to 1 column) */
+@media (max-width: 850px) {
+  .posts-container {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .post-card {
+    padding: 2rem;
+  }
+
+  .post-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .posts-container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .post-actions {
+    flex-direction: row;
+    font-size: 0.9rem;
+  }
+}
+
+/* ================= ENTRANCE ANIMATION ================= */
+@keyframes cardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.post-card {
+  animation: cardReveal 0.8s var(--ease-fluid) backwards;
+}
+
+/* Staggered appearance for the first 4 cards */
+.post-card:nth-child(1) { animation-delay: 0.1s; }
+.post-card:nth-child(2) { animation-delay: 0.2s; }
+.post-card:nth-child(3) { animation-delay: 0.3s; }
+.post-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Respect User Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  .post-card {
+    animation: none;
+    transition: none;
+  }
+}

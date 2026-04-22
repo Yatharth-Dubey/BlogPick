@@ -1,0 +1,154 @@
+/* ===== Base Reset ===== */
+.create {
+  min-height: calc(100vh - 90px);
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #d7e3f7 50%, #f87171 100%);
+  background-size: 300% 300%;
+  animation: gradientFlow 6s ease infinite;
+}
+
+/* ===== Main Container ===== */
+.create-container {
+  max-width: 900px;
+  margin: 80px auto 40px;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== Heading ===== */
+.create-container h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ===== Title Input ===== */
+.title-input {
+  width: 96%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.title-input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ===== Editor Wrapper ===== */
+.editor-container {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fafafa;
+}
+
+/* ===== TipTap Editor ===== */
+.editor-content {
+  min-height: 280px;
+  padding: 16px;
+  font-size: 1rem;
+  line-height: 1.6;
+  outline: none;
+  background: #fff;
+}
+
+/* Placeholder text */
+.editor-content p.is-editor-empty:first-child::before {
+  color: #aaa;
+  pointer-events: none;
+  float: left;
+  height: 0;
+}
+
+/* ===== Publish Button ===== */
+.publish-btn {
+  margin-top: 24px;
+  width: 100%;
+  padding: 14px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.publish-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+.publish-btn:active {
+  transform: scale(0.98);
+}
+
+/* ===== Loading State ===== */
+.editor-loading {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* ======================================================
+   RESPONSIVE BREAKPOINTS
+====================================================== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  .create-container {
+    margin: 60px 16px 30px;
+    padding: 20px;
+  }
+
+  .create-container h1 {
+    font-size: 1.7rem;
+  }
+
+  .title-input {
+    font-size: 1.1rem;
+  }
+
+  .editor-content {
+    min-height: 240px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .create-container {
+    margin: 40px 12px 20px;
+    padding: 16px;
+  }
+
+  .create-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .title-input {
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  .editor-content {
+    padding: 12px;
+    min-height: 200px;
+    font-size: 0.95rem;
+  }
+
+  .publish-btn {
+    padding: 12px;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,859 @@
+/* Register.css */
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  position: relative;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Background Elements */
+.bg-blur-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  filter: blur(40px);
+  animation: float 15s ease-in-out infinite;
+}
+
+.circle-1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.circle-2 {
+  width: 300px;
+  height: 300px;
+  bottom: -100px;
+  right: -100px;
+  animation-delay: 5s;
+  background: rgba(147, 51, 234, 0.2);
+}
+
+.circle-3 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 10%;
+  animation-delay: 10s;
+  background: rgba(244, 63, 94, 0.2);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+/* Main Container */
+.register-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  min-height: 700px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Benefits Side */
+.register-benefits {
+  flex: 1;
+  background: linear-gradient(135deg, #f43f5e 0%, #9333ea 100%);
+  color: white;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-benefits::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 100%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  transform: rotate(45deg);
+}
+
+.logo {
+  display: inline-block;
+  margin-bottom: 40px;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
+}
+
+.logo-gradient {
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+
+.benefits-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  background: linear-gradient(to right, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  z-index: 1;
+}
+
+.benefits-subtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.benefits-list {
+  margin-bottom: 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.benefit-icon {
+  font-size: 1.8rem;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.benefit-text h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.benefit-text p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #9eff4d;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Form Side */
+.register-form-container {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-header {
+  margin-bottom: 40px;
+}
+
+.progress-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.step.active .step-number {
+  background: linear-gradient(135deg, #9333ea, #f43f5e);
+  color: white;
+  transform: scale(1.1);
+}
+
+.step-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.step.active .step-label {
+  color: #9333ea;
+  font-weight: 600;
+}
+
+.step-line {
+  width: 60px;
+  height: 2px;
+  background: #e0e0e0;
+  margin: 0 15px;
+  position: relative;
+  top: -15px;
+}
+
+.form-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-subtitle {
+  color: #666;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Form Styles */
+.register-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #444;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.input-hint {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.input-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 15px;
+  color: #999;
+  stroke-width: 1.5;
+}
+
+.form-input {
+  width: 100%;
+  padding: 15px 15px 15px 45px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #9333ea;
+  box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.1);
+}
+
+.form-input.error {
+  border-color: #f43f5e;
+}
+
+.error-message {
+  display: block;
+  margin-top: 5px;
+  color: #f43f5e;
+  font-size: 0.85rem;
+}
+
+.success-message {
+  display: block;
+  margin-top: 5px;
+  color: #10b981;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Password Strength */
+.password-strength {
+  margin-top: 10px;
+}
+
+.strength-meter {
+  height: 6px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
+
+.strength-bar {
+  height: 100%;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.strength-label {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.strength-label span {
+  font-weight: 600;
+}
+
+/* Password Requirements */
+.password-requirements {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  border-left: 4px solid #9333ea;
+}
+
+.requirements-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+}
+
+.requirements-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.requirements-list li {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.requirements-list li::before {
+  content: '○';
+  margin-right: 10px;
+  font-size: 0.8rem;
+}
+
+.requirements-list li.met {
+  color: #10b981;
+}
+
+.requirements-list li.met::before {
+  content: '✓';
+  font-weight: bold;
+}
+
+/* Checkbox */
+.form-options {
+  margin-bottom: 25px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 15px;
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  margin-right: 10px;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.checkbox-input:checked + .checkbox-custom {
+  background: #9333ea;
+  border-color: #9333ea;
+}
+
+.checkbox-input:checked + .checkbox-custom::after {
+  content: '✓';
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.checkbox-text {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.terms-link {
+  color: #9333ea;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
+
+/* Buttons */
+.next-step-btn {
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(90deg, #9333ea, #f43f5e);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.next-step-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
+}
+
+.next-step-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.prev-step-btn {
+  flex: 1;
+  padding: 16px;
+  background: #f8f9fa;
+  color: #666;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.prev-step-btn:hover:not(:disabled) {
+  background: #e9ecef;
+  border-color: #ccc;
+}
+
+.prev-step-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  flex: 2;
+  padding: 16px;
+  background: linear-gradient(90deg, #9333ea, #f43f5e);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(147, 51, 234, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.divider span {
+  padding: 0 15px;
+}
+
+/* Social Register */
+.social-register {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.social-btn.google:hover:not(:disabled) {
+  border-color: #4285f4;
+  background: rgba(66, 133, 244, 0.05);
+}
+
+.social-btn.github:hover:not(:disabled) {
+  border-color: #333;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.social-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Login Link */
+.login-link {
+  text-align: center;
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: auto;
+  padding-top: 20px;
+}
+
+.login-link-btn {
+  color: #9333ea;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-link-btn:hover {
+  color: #f43f5e;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .register-container {
+    flex-direction: column;
+    max-width: 500px;
+    min-height: auto;
+  }
+  
+  .register-benefits {
+    padding: 40px;
+  }
+  
+  .benefits-title {
+    font-size: 1.8rem;
+  }
+  
+  .register-form-container {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-page {
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  }
+  
+  .register-container {
+    border-radius: 20px;
+  }
+  
+  .register-benefits {
+    padding: 30px;
+  }
+  
+  .register-form-container {
+    padding: 30px;
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+  }
+  
+  .social-register {
+    flex-direction: column;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+  }
+  
+  .prev-step-btn,
+  .submit-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 10px;
+  }
+  
+  .register-benefits,
+  .register-form-container {
+    padding: 25px;
+  }
+  
+  .benefits-title {
+    font-size: 1.5rem;
+  }
+  
+  .benefit-item {
+    padding: 15px;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+  }
+  
+  .form-input {
+    padding: 12px 12px 12px 40px;
+  }
+  
+  .input-icon {
+    left: 12px;
+  }
+  
+  .next-step-btn,
+  .submit-btn,
+  .prev-step-btn {
+    padding: 14px;
+    font-size: 1rem;
+  }
+  
+  .stats {
+    display: none;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .register-container {
+    background: rgba(30, 30, 46, 0.95);
+  }
+  
+  .form-title {
+    color: #fff;
+  }
+  
+  .form-subtitle {
+    color: #ccc;
+  }
+  
+  .form-label {
+    color: #ddd;
+  }
+  
+  .form-input {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #444;
+    color: #fff;
+  }
+  
+  .form-input:focus {
+    border-color: #9333ea;
+    box-shadow: 0 0 0 3px rgba(147, 51, 234, 0.2);
+  }
+  
+  .checkbox-text {
+    color: #ccc;
+  }
+  
+  .divider {
+    color: #888;
+  }
+  
+  .social-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #444;
+    color: #fff;
+  }
+  
+  .login-link {
+    color: #aaa;
+  }
+  
+  .prev-step-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #444;
+    color: #ccc;
+  }
+  
+  .password-requirements {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .requirements-title {
+    color: #ddd;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .bg-blur-circle {
+    animation: none;
+  }
+  
+  .next-step-btn:hover,
+  .submit-btn:hover,
+  .social-btn:hover,
+  .benefit-item:hover {
+    transform: none;
+  }
+}
