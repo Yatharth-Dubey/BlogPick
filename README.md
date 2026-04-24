@@ -22,7 +22,7 @@ New features and improvements are being added regularly.
 ## 📸 Screenshots
 
 <p align="center">
-  <img src="./frontedn/src/assets/blogpick1.png" width="45%" />
+  <img src="./frontend/src/assets/blogpick1.png" width="45%" />
   <img src="./frontend/src/assets/blogpick2.png" width="45%" />
 </p>
 
